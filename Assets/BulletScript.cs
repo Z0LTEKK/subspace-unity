@@ -29,13 +29,7 @@ if(collision.gameObject.tag == "CollisionTag")
          }
          else
          {
-         GameObject ExplosionClone = Instantiate(ExplosionEffect, transform.position, transform.rotation);
-             ExplosionClone.GetComponent<NetworkObject>().Spawn(true);
-  ParticleSystem ExplosionCloneParticle = ExplosionClone.GetComponent<ParticleSystem>();   
-    AudioSource ExplosionSound = ExplosionClone.GetComponent<AudioSource>();   
-  ExplosionCloneParticle.Emit(1);
-  ExplosionSound.Play();
-       Destroy(gameObject);
+        ExplodeClient();
          }
 
 

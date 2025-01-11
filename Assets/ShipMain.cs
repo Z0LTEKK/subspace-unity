@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-public class ShipMovement : MonoBehaviour
+using Unity.Netcode;
+public class ShipController : MonoBehaviour
 {
    public float defaultshipspeed = 8.0f;
  public float shipspeed = 8.0f;
@@ -11,6 +11,7 @@ public class ShipMovement : MonoBehaviour
  public int shiprotationspeed = 10;
  public AudioSource bounce;
 public Rigidbody2D rb;
+public GameObject ExplosionEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,4 +58,19 @@ private void FixedUpdate()
 {
     
  }
+     void ExplodeClient()
+    {//yoinked most of this from the bullet explosion script
+        GameObject ExplosionClone = Instantiate(ExplosionEffect, transform.position, transform.rotation);
+        ExplosionClone.GetComponent<NetworkObject>().Spawn(true);
+        ParticleSystem ExplosionCloneParticle = ExplosionClone.GetComponent<ParticleSystem>();
+        AudioSource ExplosionSound = ExplosionClone.GetComponent<AudioSource>();
+        ExplosionCloneParticle.Emit(1);
+        ExplosionSound.Play();
+        Destroy(gameObject);
+    }
+    [ServerRpc]
+    private void ExplosionServerRpc()
+    {
+        ExplodeClient();
+    }
 }

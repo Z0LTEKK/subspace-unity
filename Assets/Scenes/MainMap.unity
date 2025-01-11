@@ -31143,9 +31143,9 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 127.0.0.1
+    Address: 192.168.1.60
     Port: 7777
-    ServerListenAddress: 127.0.0.1
+    ServerListenAddress: 0.0.0.0
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -31161,6 +31161,7 @@ GameObject:
   - component: {fileID: 1939170312}
   - component: {fileID: 1939170311}
   - component: {fileID: 1939170310}
+  - component: {fileID: 1939170313}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -31233,6 +31234,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+--- !u!114 &1939170313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939170309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0cdd1e96ef7a34480f22091c15a827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2008699143
 GameObject:
   m_ObjectHideFlags: 0
