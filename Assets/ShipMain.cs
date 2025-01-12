@@ -46,7 +46,7 @@ public class ShipController : NetworkBehaviour
     {
       ExplosionServerRpc();
     }
-
+    else
     
     {
       ExplodeClient();
@@ -72,7 +72,7 @@ public class ShipController : NetworkBehaviour
   {
     if (OwnerClientId != 0)
     {
-      Invoke("RespawnPlayerRpc", 3);
+      Invoke("RespawnPlayerServerRpc", 3);
     }
 
     else
@@ -86,7 +86,7 @@ public class ShipController : NetworkBehaviour
     gameObject.GetComponent<SpriteRenderer>().enabled = true;
     rb.isKinematic = false;
     AllowedToPlay = true;
-    //Debounce = false;
+    Debounce = false;
   }
   void Start()
   {
@@ -134,7 +134,8 @@ public class ShipController : NetworkBehaviour
   {
     ExplodeClient();
   }
-  private void RespawnPlayerRpc()
+  [ServerRpc]
+  private void RespawnPlayerServerRpc()
   {
     RespawnPlayerClient();
   }
