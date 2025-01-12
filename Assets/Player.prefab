@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 5332241837517939774}
   - component: {fileID: 7722874332887764679}
   m_Layer: 8
-  m_Name: exhaust
+  m_Name: exhaust1
   m_TagString: CollisionTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5172,7 +5172,7 @@ GameObject:
   - component: {fileID: 5004178538214045620}
   m_Layer: 8
   m_Name: Player
-  m_TagString: CollisionTag
+  m_TagString: ShipTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5328,6 +5328,9 @@ MonoBehaviour:
   shiprotationspeed: 16
   bounce: {fileID: 1533634168015065952}
   rb: {fileID: 5103554969504807732}
+  ExplosionEffect: {fileID: 7978854247381980729, guid: ddd1f822ef150a147b2ff75246c9a5fb, type: 3}
+  Exhaust1: {fileID: 7216650270875207000}
+  Exhaust2: {fileID: 9107738705460191679}
 --- !u!82 &1533634168015065952
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10287,8 +10290,8 @@ GameObject:
   - component: {fileID: 4564874041904751926}
   - component: {fileID: 8647396790896221233}
   m_Layer: 8
-  m_Name: exhaust
-  m_TagString: Untagged
+  m_Name: exhaust2
+  m_TagString: CollisionTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollisionTag
+  - ShipTag
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Walls
   - Bullets
   - Ships
-  - 
+  - ClientShip
   - 
   - 
   - 
