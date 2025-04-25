@@ -25,7 +25,7 @@ public class camerafollow : NetworkBehaviour
 
         if (SceneManager.GetActiveScene().name == "MainMap")
         {
-            print("setting transform");
+            //print("setting transform");
             transform.position = PlayerTransform.transform.position + new Vector3(0, 0, -5);
             transform.rotation = Quaternion.LookRotation(PlayerTransform.position - transform.position, Vector3.up);
         }

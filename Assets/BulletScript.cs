@@ -49,8 +49,13 @@ if(collision.gameObject.tag == "CollisionTag")
     AudioSource ExplosionSound = ExplosionClone.GetComponent<AudioSource>();   
   ExplosionCloneParticle.Emit(1);
   ExplosionSound.Play();
+  if (IsServer)
+  {
        Destroy(gameObject);
     }
+  else
+  {return;}
+  }
     [ServerRpc]
 private void ExplosionServerRpc()
 {

@@ -42,18 +42,22 @@ public class ShipController : NetworkBehaviour
   }
   void Explode()
   {
-    if (OwnerClientId != 0)
+    if (IsServer)
     {
-      ExplosionServerRpc();
+      print("server");
+      ExplodeClientRpc();
     }
     else
     
     {
-      ExplodeClient();
+      print("client");
+      ExplosionServerRpc();
     }
   }
-  void ExplodeClient()
+  [ClientRpc]
+  void ExplodeClientRpc()
   {//yoinked most of this from the bullet explosion script
+      print("exploding on client");
     Debounce = true;
     GameObject ExplosionClone = Instantiate(ExplosionEffect, transform.position, transform.rotation);
     ExplosionClone.GetComponent<NetworkObject>().Spawn(true);
@@ -61,6 +65,8 @@ public class ShipController : NetworkBehaviour
     AudioSource ExplosionSound = ExplosionClone.GetComponent<AudioSource>();
     ExplosionCloneParticle.Emit(1);
     ExplosionSound.Play();
+
+  
     rb.isKinematic = true;
     rb.velocity = Vector2.zero;
     gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -129,14 +135,15 @@ public class ShipController : NetworkBehaviour
 
   }
 
-  [ServerRpc]
+  [ServerRpc(RequireOwnership = false)]
   private void ExplosionServerRpc()
   {
-    ExplodeClient();
+    ExplodeClientRpc();
   }
-  [ServerRpc]
+  [ServerRpc(RequireOwnership = false)]
   private void RespawnPlayerServerRpc()
   {
+    print("respawning");
     RespawnPlayerClient();
   }
 }

@@ -26,6 +26,7 @@ public class Gun : NetworkBehaviour
     }
     void ShootBulletClient()
     {
+        print("Shoot");
         GameObject BulletClone = Instantiate(Bullet, FirePoint.position, new Quaternion(0, 0, 0, 0));
 
         BulletClone.GetComponent<NetworkObject>().Spawn(true);
