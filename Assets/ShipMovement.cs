@@ -40,31 +40,30 @@ public class ShipController : NetworkBehaviour
       }
     }
   }
-  void Explode()
+public void Explode()
   {
-    if (IsServer)
-    {
-      print("server");
-      ExplodeClientRpc();
-    }
-    else
-    
+    if (OwnerClientId != 0)
     {
       print("client");
       ExplosionServerRpc();
     }
+  else
+    {
+      print("server");
+      ExplodeClient();
+    }
+  
   }
-  [ClientRpc]
-  void ExplodeClientRpc()
+public void ExplodeClient()
   {//yoinked most of this from the bullet explosion script
       print("exploding on client");
     Debounce = true;
     GameObject ExplosionClone = Instantiate(ExplosionEffect, transform.position, transform.rotation);
     ExplosionClone.GetComponent<NetworkObject>().Spawn(true);
     ParticleSystem ExplosionCloneParticle = ExplosionClone.GetComponent<ParticleSystem>();
-    AudioSource ExplosionSound = ExplosionClone.GetComponent<AudioSource>();
+    //AudioSource ExplosionSound = ExplosionClone.GetComponent<AudioSource>();
     ExplosionCloneParticle.Emit(1);
-    ExplosionSound.Play();
+    //ExplosionSound.Play();
 
   
     rb.isKinematic = true;
@@ -74,7 +73,7 @@ public class ShipController : NetworkBehaviour
     Respawn();
 
   }
-  void Respawn()
+public void Respawn()
   {
     if (OwnerClientId != 0)
     {
@@ -86,7 +85,8 @@ public class ShipController : NetworkBehaviour
       Invoke("RespawnPlayerClient", 3);
     }
   }
-  void RespawnPlayerClient()
+
+  public void RespawnPlayerClient()
   {
     gameObject.transform.position = new Vector3(0, 0, 0);
     gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -130,18 +130,14 @@ public class ShipController : NetworkBehaviour
     }
   }
 
-  private void FixedUpdate()
-  {
 
-  }
-
-  [ServerRpc(RequireOwnership = false)]
-  private void ExplosionServerRpc()
+  [ServerRpc]
+  public void ExplosionServerRpc()
   {
-    ExplodeClientRpc();
+    ExplodeClient();
   }
-  [ServerRpc(RequireOwnership = false)]
-  private void RespawnPlayerServerRpc()
+  [ServerRpc]
+  public void RespawnPlayerServerRpc()
   {
     print("respawning");
     RespawnPlayerClient();

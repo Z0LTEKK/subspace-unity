@@ -31217,6 +31217,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5731973466813809456, guid: 43f41a535e793774e8e313ba2e49e6c7, type: 3}
+      propertyPath: NetworkConfig.PlayerPrefab
+      value: 
+      objectReference: {fileID: 8951032164373798524, guid: cff71c61af6e4394c8d32ac344598aff, type: 3}
+    - target: {fileID: 5731973466813809456, guid: 43f41a535e793774e8e313ba2e49e6c7, type: 3}
       propertyPath: NetworkConfig.NetworkTransport
       value: 
       objectReference: {fileID: 1919274378}

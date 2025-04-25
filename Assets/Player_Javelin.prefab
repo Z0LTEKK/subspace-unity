@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 3879155406786464917}
-  Bullet: {fileID: 7984611665171034523, guid: 5abc32a554c49e841953395e29cb362c, type: 3}
+  Bullet: {fileID: 4297578258602885071, guid: 9c1583c3d0a403b4c92ba2dd3289be8c, type: 3}
   Ship: {fileID: 5103554969504807732}
   BulletSound: {fileID: 2194479435509502868}
   BulletSpeed: 8
@@ -189,7 +189,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 248a61a16f99548449f5010f809ea15d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 05b248a042044f54296e8eddf7ac778a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5375,7 +5375,7 @@ GameObject:
   - component: {fileID: 4063733695680975202}
   - component: {fileID: 5004178538214045620}
   m_Layer: 8
-  m_Name: Player
+  m_Name: Player_Javelin
   m_TagString: ShipTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5441,7 +5441,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 410956464, guid: e0adc403aad2b934da1d9b76cdd5d81c, type: 3}
+  m_Sprite: {fileID: -641752285, guid: e0adc403aad2b934da1d9b76cdd5d81c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5526,7 +5526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3575706267
+  GlobalObjectIdHash: 834474354
   InScenePlacedSourceGlobalObjectIdHash: 165771686
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
